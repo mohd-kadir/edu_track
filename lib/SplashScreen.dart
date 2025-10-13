@@ -14,7 +14,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3),(){
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginSreen(),));
     });
   }
@@ -23,17 +22,16 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body:Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: 250,
-              width: 250,
-              child: Image.asset('assets/images/logo.png'),
-            ),
-            SizedBox(height: 50,),
-            Text("EduTrack – Learn. Progress. Succeed.",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
-          ]
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 250,
+                width: 250,
+                child: Image.asset('assets/images/logo.png'),
+              ),
+              SizedBox(height: 50,),
+            ]
         ),
       )
     );

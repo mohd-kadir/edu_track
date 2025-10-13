@@ -15,65 +15,42 @@ class _LoginSreenState extends State<LoginSreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 250,
-                width: 250,
-                child: Image.asset("assets/images/logo.png"),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              TextField(
-                keyboardType: TextInputType.text,
-                controller: userName,
-                decoration: InputDecoration(
-                  hintText: "Username",
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(21),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(21),
-                    borderSide: BorderSide(
-                      color: Colors.blue.shade900,
-                      width: 2
-                    )
-                  )
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 250,
+                      width: 250,
+                      child: Image.asset("assets/images/logo.png"),
+                    ),
+                    TextField(
+                      keyboardType: TextInputType.text,
+                      controller: userName,
+                      decoration: InputDecoration(
+                        hintText: "Username",
+                        enabledBorder: OutlineInputBorder(
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                        ),
+                      ),
+                    TextField(
+                      keyboardType: TextInputType.text,
+                      controller: password,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        enabledBorder: OutlineInputBorder(
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                        ),
+                      ),
+                    SizedBox(
+                          ),
+                  ],
                 ),
               ),
-              SizedBox(height: 10,),
-              TextField(
-                keyboardType: TextInputType.text,
-                controller: password,
-                decoration:  InputDecoration(
-                  hintText: "Password",
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(21),
-                  ),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(21),
-                        borderSide: BorderSide(
-                            color: Colors.blue.shade900,
-                          width: 2
-                        )
-                    )
-                ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
-              }, child: Text("LOGIN"))
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }
