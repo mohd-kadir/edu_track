@@ -4,13 +4,6 @@ EduTrack is a **Flutter-based educational management app** designed for students
 
 ---
 
-## 🚀 Features  
-
-### 🧑‍🎓 User Management  
-- Sign Up with details: **Name, Age, Institute, Mobile, Email, Password**  
-- Secure Login using **SQLite database**  
-- Profile data stored locally and displayed after login  
-
 ### 📚 Course Management  
 - Separate sections for:
   - **Your Programs** (enrolled courses)
@@ -53,9 +46,11 @@ EduTrack is a **Flutter-based educational management app** designed for students
 
 | Sign Up | Login | Dashboard | Programs | Profile |
 |----------|--------|-----------|-----------|----------|
-| ![Signup](https://via.placeholder.com/150x300?text=Signup+Screen) | ![Login](https://via.placeholder.com/150x300?text=Login+Screen) | ![Dashboard](https://via.placeholder.com/150x300?text=Dashboard) | ![Programs](https://via.placeholder.com/150x300?text=Programs) | ![Profile](https://via.placeholder.com/150x300?text=Profile) |
-
-> *(You can replace these image URLs with real screenshots later.)*
+| Still pending | <img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/18a5f89f-f316-4550-8fe9-ad306f3f8dad" />
+ | <img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/373ef1db-a816-436c-b1d8-294f64903df8" />
+ | <img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/2d1a06f7-e7a7-4202-8d9e-3331d3a23b95" />
+ | <img width="1080" height="2400" alt="image" src="https://github.com/user-attachments/assets/1db3b16f-06ca-4b5c-b041-e61a732ac42e" />
+|
 
 ---
 
@@ -64,3 +59,30 @@ EduTrack is a **Flutter-based educational management app** designed for students
 1. **Clone the repository**
    ```bash
    git clone https://github.com/mohd-kadir/edu_track.git
+2. **Navigate to the project directory**
+   cd edu_track
+3. **Install dependencies**
+   flutter pub get
+4. **Run the app**
+   flutter run
+---
+# 💡 Future Enhancements
+	•	Firebase authentication
+	•	Cloud sync for user data
+	•	Leaderboard and gamification for learning progress
+	•	Dark mode
+
+⸻
+
+# 🧠 Developed By
+
+👨‍💻 Mohd Kadir
+📍 B.Tech CSE (AI) — Jamia Hamdard University
+📧 mohdkadir2512004@gmail.com
+🌐 GitHub Profile
+
+⸻
+
+# 🪪 License
+
+This project is licensed under the MIT License — see the LICENSE file for details.
