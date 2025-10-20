@@ -65,7 +65,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             Text(
               "Ready to continue learning?",
-              style: TextStyle(color: Colors.white,fontSize: 15),
+              style: TextStyle(color: Colors.white,fontSize: 12),
             ),
           ],
         )

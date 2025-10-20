@@ -1,4 +1,5 @@
 import 'package:edu_track/HomeScreen.dart';
+import 'package:edu_track/SignupScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class _LoginSreenState extends State<LoginSreen> {
     var password = TextEditingController();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         physics: ClampingScrollPhysics(),
@@ -28,11 +30,7 @@ class _LoginSreenState extends State<LoginSreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      height: 250,
-                      width: 250,
-                      child: Image.asset("assets/images/logo.png"),
-                    ),
+                    Image.asset("assets/images/logo.png",height: 250, width: 250,fit: BoxFit.cover,),
                     SizedBox(height: 40),
                     TextField(
                       keyboardType: TextInputType.text,
@@ -110,7 +108,9 @@ class _LoginSreenState extends State<LoginSreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Don't have an account? "),
-                        InkWell(child: Text("Sign Up",style: TextStyle(color: Color(0xffE3A01F),fontWeight: FontWeight.bold),))
+                        InkWell(onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen(),));
+                        } ,child: Text("Sign Up",style: TextStyle(color: Color(0xffE3A01F),fontWeight: FontWeight.bold),))
                       ],
                     )
                   ],
