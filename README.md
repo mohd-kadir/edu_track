@@ -57,10 +57,13 @@ EduTrack is a **Flutter-based educational management app** designed for students
    ```bash
    git clone https://github.com/mohd-kadir/edu_track.git
 2. **Navigate to the project directory**
+	```bash
    cd edu_track
-3. **Install dependencies**
+4. **Install dependencies**
+	```bash
    flutter pub get
-4. **Run the app**
+6. **Run the app**
+	```bash
    flutter run
 ---
 # 💡 Future Enhancements
