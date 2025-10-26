@@ -10,10 +10,11 @@ class LoginSreen extends StatefulWidget {
 }
 
 class _LoginSreenState extends State<LoginSreen> {
+  var userName = TextEditingController();
+  var password = TextEditingController();
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
-    var userName = TextEditingController();
-    var password = TextEditingController();
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -37,6 +38,7 @@ class _LoginSreenState extends State<LoginSreen> {
                       keyboardType: TextInputType.text,
                       controller: userName,
                       decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.person),
                         hintText: "Username",
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
@@ -50,9 +52,16 @@ class _LoginSreenState extends State<LoginSreen> {
                     SizedBox(height: 10),
                     TextField(
                       keyboardType: TextInputType.text,
+                      obscureText: _obscureText,
                       controller: password,
                       decoration: InputDecoration(
                         hintText: "Password",
+                        prefixIcon: Icon(Icons.lock),
+                        suffixIcon: IconButton(onPressed: (){
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        }, icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility,)),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
