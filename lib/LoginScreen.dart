@@ -1,5 +1,6 @@
 import 'package:edu_track/HomeScreen.dart';
 import 'package:edu_track/SignupScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -66,11 +67,41 @@ class _LoginSreenState extends State<LoginSreen> {
                       width: 250,
                       height: 45,
                       child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomeScreen()),
-                          );
+                        onPressed: () async{
+
+                          String mail = userName.text.trim();
+                          String pass = password.text.trim();
+
+                          if(mail.isEmpty || pass.isEmpty){
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Enter All the Fields")));
+                          }else{
+                            try{
+                              await FirebaseAuth.instance.signInWithEmailAndPassword(email: mail, password: pass).then((value){
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login Successfully!!")));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+                              });
+                            }on FirebaseAuthException catch(err){
+                              String errorMessage;
+                              if (err.code == 'wrong-password') {
+                                errorMessage = "Invalid Password";
+                              } else if (err.code == 'user-not-found') {
+                                errorMessage = "No user found with this email";
+                              } else if (err.code == 'invalid-email') {
+                                errorMessage = "Invalid Email";
+                              } else {
+                                errorMessage = "Login Failed. ${err.message}";
+                              }
+
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(errorMessage))
+                              );
+                            }catch (e) {
+                              // Any other errors
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Something went wrong"))
+                              );
+                            }
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xff0D1C2E),

@@ -1,6 +1,8 @@
 import 'package:edu_track/LoginScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_options.dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -13,6 +15,7 @@ class _SignupScreenState extends State<SignupScreen> {
   var emailId = TextEditingController();
   var phoneNo = TextEditingController();
   var instituteName = TextEditingController();
+  var password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +59,10 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               SizedBox(height: 10,),
               TextField(
-                keyboardType: TextInputType.emailAddress,
-                controller: emailId,
+                keyboardType: TextInputType.text,
+                controller: instituteName,
                 decoration: InputDecoration(
-                  hintText: "Email",
+                  hintText: "Institute Name",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -69,7 +72,9 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextField(
                 keyboardType: TextInputType.number,
                 controller: phoneNo,
@@ -84,12 +89,31 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextField(
-                keyboardType: TextInputType.text,
-                controller: instituteName,
+                keyboardType: TextInputType.emailAddress,
+                controller: emailId,
                 decoration: InputDecoration(
-                  hintText: "InstituteName",
+                  hintText: "Email",
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(color: Color(0xff0D1C2E), width: 2),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                controller: password,
+                decoration: InputDecoration(
+                  hintText: "Password",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
@@ -104,11 +128,23 @@ class _SignupScreenState extends State<SignupScreen> {
                 width: 250,
                 height: 45,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginSreen()),
-                    );
+                  onPressed: () async{
+
+                    String mail = emailId.text.trim();
+                    String pass = password.text.trim();
+
+                    if(mail.isEmpty || pass.isEmpty){
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Enter All The Fields")));
+                    }else{
+                     try{
+                       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: mail, password: pass).then((value){
+                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Registered Successfully!!")));
+                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginSreen(),));
+                       });
+                     }catch(err){
+                       print(err);
+                     }
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xff0D1C2E),

@@ -31,11 +31,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   CircleAvatar(
                     radius: 50,
-                    backgroundImage: NetworkImage("https://media.istockphoto.com/id/1682296067/photo/happy-studio-portrait-or-professional-man-real-estate-agent-or-asian-businessman-smile-for.jpg?s=612x612&w=0&k=20&c=9zbG2-9fl741fbTWw5fNgcEEe4ll-JegrGlQQ6m54rg="),
+                    backgroundImage: AssetImage("assets/images/img.png")
                   ),
                   SizedBox(height: 10),
                   Text(
-                    "John Doe",
+                    "Mohd Kadir",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22,
@@ -43,7 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   SizedBox(height: 5),
                   Text(
-                    "johndoe@email.com",
+                    "mohdkadirjhu@gmail.com",
                     style: TextStyle(color: Colors.white70, fontSize: 16),
                   ),
                 ],
@@ -59,16 +59,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   profileOption(
                       icon: Icons.person,
-                      text: "John Doe",
+                      text: "Mohd Kadir",
                   ),
                   profileOption(
-                      icon: Icons.email, text: "johndoe@email.com", ),
+                      icon: Icons.email, text: "mohdkadirjhu@gmail.com", ),
                   profileOption(
                       icon: Icons.phone,
                       text: "+91 92327 92356",
                       ),
                   profileOption(
-                      icon: Icons.school, text: "St. Philips University",),
+                      icon: Icons.school, text: "Jamia hamdard",),
                   SizedBox(height: 50,),
                   SizedBox(
                     width: 250,
