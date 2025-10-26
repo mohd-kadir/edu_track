@@ -50,6 +50,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         automaticallyImplyLeading: false,
         backgroundColor: Color(0xff0D1C2E),
         title: Column(
