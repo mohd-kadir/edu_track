@@ -11,6 +11,7 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
 
+  bool _obscureText = true;
   var name = TextEditingController();
   var emailId = TextEditingController();
   var phoneNo = TextEditingController();
@@ -110,10 +111,16 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 10,
               ),
               TextField(
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
+                obscureText: _obscureText,
                 controller: password,
                 decoration: InputDecoration(
                   hintText: "Password",
+                  suffixIcon: IconButton(onPressed: (){
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  }, icon: Icon(_obscureText ? Icons.visibility_off : Icons.visibility,)),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
