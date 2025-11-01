@@ -77,8 +77,11 @@ EduTrack is a **Flutter-based educational management app** designed for students
 # 🧠 Developed By
 
 👨‍💻 Mohd Kadir
+
 📍 B.Tech CSE (AI) — Jamia Hamdard University
+
 📧 mohdkadir2512004@gmail.com
+
 🌐 GitHub Profile
 
 ⸻
